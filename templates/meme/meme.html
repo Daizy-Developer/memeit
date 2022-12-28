@@ -35,29 +35,7 @@
         box-shadow: 0 2px 10px rgba(0, 0, 0, .2);
     }
 
-    .card:before,
-    .card:after {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        border-radius: 4px;
-        background: #fff;
-        transition: 0.5s;
-        z-index: -1;
-    }
 
-    .card:hover:before {
-        transform: rotate(20deg);
-        box-shadow: 0 2px 20px rgba(0, 0, 0, .2);
-    }
-
-    .card:hover:after {
-        transform: rotate(10deg);
-        box-shadow: 0 2px 20px rgba(0, 0, 0, .2);
-    }
 
     .card .imgBx {
         position: absolute;
@@ -108,6 +86,79 @@
         display: block;
         margin-top: 5px;
     }
+    
+.button-like {
+    border: 2px solid #8a8a8a;
+    background-color: transparent;
+    text-decoration: none;
+    padding: 1rem;
+    position: relative;
+    vertical-align: middle;
+    text-align: center;
+    display: inline-block;
+    border-radius: 3rem;
+    color: #8a8a8a;
+    transition: all ease 0.4s;
+  }
+  
+  .button-like span {
+    margin-left: 0.5rem;
+  }
+  
+  .button-like .fa,
+  .button-like span {
+    transition: all ease 0.4s;
+  }
+  
+  .button-like:focus {
+    background-color: transparent;
+  }
+  
+  .button-like:focus .fa,
+  .button-like:focus span {
+    color: #8a8a8a;
+  }
+  
+  .button-like:hover {
+    border-color: #cc4b37;
+    background-color: transparent;
+  }
+  
+  .button-like:hover .fa,
+  .button-like:hover span {
+    color: #cc4b37;
+  }
+  
+  .liked {
+    background-color: #cc4b37;
+    border-color: #cc4b37;
+  }
+  
+  .liked .fa,
+  .liked span {
+    color: #fefefe;
+  }
+  
+  .liked:focus {
+    background-color: #cc4b37;
+  }
+  
+  .liked:focus .fa,
+  .liked:focus span {
+    color: #fefefe;
+  }
+  
+  .liked:hover {
+    background-color: #cc4b37;
+    border-color: #cc4b37;
+  }
+  
+  .liked:hover .fa,
+  .liked:hover span {
+    color: #fefefe;
+  }
+  
+  
 </style>
 {% endblock head %}
 
@@ -115,19 +166,31 @@
 <h1 style="text-align: center;font-family:  Helvetica, sans-serif;">Categories</h1>
 <div class="container">
     {%for i in memes%}
-    <div class="card text-center">
+    <div class="card text-center" style="width:80vw">
         <div class="card-header">
             {{i.Category}}
         </div>
         <div class="card-body">
-            <img src="{{i.Image}}" style="height: 19vh;" alt="">
+            <img src="/media/{{i.Image}}" style="width:70vw" alt="">
+           
         </div>
 
         <div class="card-footer text-muted">
-            2 days ago
+            {{i.Date}}
         </div>
     </div>
     {%endfor%}
 
 </div>
+<script>
+$(document).foundation();
+$(function() {
+  $('.button-like')
+    .bind('click', function(event) {
+      $(".button-like").toggleClass("liked");
+    })
+});
+
+
+</script>
 {% endblock body %}

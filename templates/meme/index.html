@@ -120,18 +120,15 @@
             {{i.Category}}
         </div>
         <div class="card-body">
+            <a href="meme/{{i.Category}}">
             {% if i.Category == "The Comics" %}
-            <a href="">
             <img src="https://img.freepik.com/free-vector/comic-bright-strips-with-explosive-halftone-rays_225004-801.jpg?w=2000" style="height: 20vh;" alt=""></a>
             {% elif i.Category == "The Classics" %}
-            <a href="">
-            <img src="https://i.pinimg.com/550x/77/ee/6b/77ee6bf088bb12769ca1d4817ea1f015.jpg" style="height: 19vh;" alt=""></a>
-            {% endif %}
+            <img src="https://i.pinimg.com/550x/77/ee/6b/77ee6bf088bb12769ca1d4817ea1f015.jpg" style="height: 19vh;" alt="">
+            {% endif %}</a>
         </div>
 
-        <div class="card-footer text-muted">
-            2 days ago
-        </div>
+     
     </div>
     {%endfor%}
 
